@@ -9,6 +9,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '../ui/carousel';
+import { Button } from '../ui/button';
 
 const List = () => {
   const { data: popular } = useQuery({
@@ -122,13 +123,13 @@ const List = () => {
         </div>
         <div className='mx-auto my-10 flex w-full justify-center'>
           {hasNextPage ? (
-            <button
+            <Button
               onClick={() => fetchNextPage()}
               disabled={isFetchingNextPage}
-              className='mx-auto rounded bg-neutral-800 px-3 py-2 text-white disabled:opacity-60'
+              className='mx-auto rounded px-3 py-2 text-white disabled:opacity-60'
             >
               {isFetchingNextPage ? 'Loading FetchingNext …' : 'Load More'}
-            </button>
+            </Button>
           ) : (
             <div className='text-sm text-neutral-500'>
               Semua data sudah dimuat.
