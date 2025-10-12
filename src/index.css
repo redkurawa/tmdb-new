@@ -119,3 +119,16 @@
     font-family: 'Poppins', sans-serif;
   }
 }
+
+.text-outline {
+  /*
+    Menggunakan empat bayangan (shadow) tanpa blur
+    untuk meniru stroke/outline 1px ke atas/bawah/kiri/kanan
+    Warna outline di sini adalah hitam (#000)
+  */
+  text-shadow:
+    1px 1px 0 #a1a1a1,
+    -1px -1px 0 #a1a1a1,
+    1px -1px 0 #a1a1a1,
+    -1px 1px 0 #a1a1a1;
+}
