@@ -1,9 +1,9 @@
 import GetM from '@/services/service';
 import type { MovieDetail } from '@/types/movie-detail';
-import { CalendarDays, Video } from 'lucide-react';
+import dayjs from 'dayjs';
+import { CalendarDays } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import dayjs from 'dayjs';
 import DetailStats from '../layouts/movie-detail-stats';
 
 const ShowDetail = () => {
