@@ -1,6 +1,6 @@
 import GetM from '@/services/service';
 import type { Movie } from '@/types/movie-list';
-import { useQuery } from '@tanstack/react-query';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 import { MovieCard } from '../layouts/movie-card';
 import {
   Carousel,
@@ -20,17 +20,41 @@ const List = () => {
     },
   });
 
-  const { data: upcoming } = useQuery({
+  // const { data: upcoming } = useQuery({
+  //   queryKey: ['tmdb/upcoming'],
+  //   queryFn: async () => {
+  //     const r = await GetM('movie/upcoming?language=en-US&page=83');
+  //     console.log('[List] upcoming:', r);
+  //     return r.data.results as Movie[];
+  //   },
+  // });
+
+  const {
+    data: upcoming,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    status,
+  } = useInfiniteQuery({
     queryKey: ['tmdb/upcoming'],
-    queryFn: async () => {
-      const r = await GetM('movie/upcoming');
+    initialPageParam: 1,
+    queryFn: async ({ pageParam }) => {
+      const r = await GetM(`movie/upcoming?language=en-US&page=${pageParam}`);
+      const res = (r.data?.results ?? []) as Movie[];
       console.log('[List] upcoming:', r.data);
-      return r.data.results as Movie[];
+      const nextOf = r.data?.page ? (pageParam as number) + 1 : undefined;
+      return { res, nextOf };
     },
+    getNextPageParam: (lastPage) => lastPage.nextOf,
   });
+
+  if (status == 'pending') return <div>Loading</div>;
+  if (status == 'error') return <div>Error</div>;
 
   if (!popular) return <div>Loading popular...</div>;
   if (!upcoming) return <div>Loading upcoming...</div>;
+
+  const allUpcomingMovies = upcoming.pages.flatMap((page) => page.res);
 
   return (
     <>
@@ -75,7 +99,6 @@ const List = () => {
               {popular.map((d) => (
                 <CarouselItem key={d.id} className='basis-1/2 sm:basis-1/5'>
                   <MovieCard {...d} />
-                  {/* {d.title} */}
                 </CarouselItem>
               ))}
             </CarouselContent>
@@ -89,12 +112,28 @@ const List = () => {
         >
           New Release
         </h1>
+
         <div className='grid grid-cols-2 gap-5 sm:grid-cols-5'>
-          {upcoming.map((d) => (
+          {allUpcomingMovies.map((d) => (
             <div key={d.id}>
               <MovieCard {...d} />
             </div>
           ))}
+        </div>
+        <div className='mx-auto my-10 flex w-full justify-center'>
+          {hasNextPage ? (
+            <button
+              onClick={() => fetchNextPage()}
+              disabled={isFetchingNextPage}
+              className='mx-auto rounded bg-neutral-800 px-3 py-2 text-white disabled:opacity-60'
+            >
+              {isFetchingNextPage ? 'Loading FetchingNext …' : 'Load More'}
+            </button>
+          ) : (
+            <div className='text-sm text-neutral-500'>
+              Semua data sudah dimuat.
+            </div>
+          )}
         </div>
       </div>
     </>
