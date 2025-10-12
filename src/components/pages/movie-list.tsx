@@ -73,7 +73,7 @@ const List = () => {
           <Carousel className='w-full'>
             <CarouselContent>
               {popular.map((d) => (
-                <CarouselItem key={d.id} className='basis-1/3 sm:basis-1/5'>
+                <CarouselItem key={d.id} className='basis-1/2 sm:basis-1/5'>
                   <MovieCard {...d} />
                   {/* {d.title} */}
                 </CarouselItem>
@@ -89,7 +89,7 @@ const List = () => {
         >
           New Release
         </h1>
-        <div className='grid grid-cols-3 gap-5 sm:grid-cols-5'>
+        <div className='grid grid-cols-2 gap-5 sm:grid-cols-5'>
           {upcoming.map((d) => (
             <div key={d.id}>
               <MovieCard {...d} />
