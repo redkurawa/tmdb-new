@@ -4,6 +4,7 @@ import { CalendarDays, Video } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import dayjs from 'dayjs';
+import DetailStats from '../layouts/movie-detail-stats';
 
 const ShowDetail = () => {
   const { id } = useParams();
@@ -63,40 +64,13 @@ const ShowDetail = () => {
               <CalendarDays className='' />
               {dayjs(detail.release_date).format('DD MMMM YYYY')}
             </div>
-            <div className='grid w-full grid-cols-3 gap-x-5 py-6'>
-              <div className='flex flex-col items-center gap-2 rounded-2xl bg-black/30 p-5 text-center text-[16px]'>
-                <img src='/icons/star.svg' alt='star' />
-                Rating
-                <div>{detail.vote_average.toFixed(2)}/10</div>
-              </div>
-              <div className='flex flex-col items-center gap-2 rounded-2xl bg-black/30 p-5 text-center text-[16px]'>
-                <Video className='size-8 fill-white' />
-                Genre
-                {detail.genres.length > 1 ? (
-                  detail.genres.length > 4 ? (
-                    <div className='grid grid-cols-2 gap-x-10'>
-                      {detail.genres.map((g) => (
-                        <div key={g.id}>{g.name}</div>
-                      ))}
-                    </div>
-                  ) : (
-                    detail.genres.map((g) => <div key={g.id}>{g.name}</div>)
-                  )
-                ) : (
-                  <div>{detail.genres[0].name}</div>
-                )}
-              </div>
-              <div className='flex flex-col items-center gap-2 rounded-2xl bg-black/30 p-5 text-center text-[16px]'>
-                <img src='/icons/age.svg' alt='star' />
-                Age Limit
-                <div>{detail.adult ? 'Adult' : 'All age'}</div>
-              </div>
-            </div>
+            <DetailStats {...detail} className='hidden sm:grid' />
           </div>
         </div>
       </div>
       {/* below hero image */}
       <div className='mx-auto w-full max-w-300'>
+        <DetailStats {...detail} className='grid sm:hidden' />
         <div
           className='font-bold'
           style={{ fontSize: 'clamp(1.5rem, 5vw - 1rem, 2.25rem)' }}
