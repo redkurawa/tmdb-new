@@ -12,7 +12,11 @@ const DetailStats = ({ className, ...d }: DetailStatsProps) => {
         className='flex flex-col items-center gap-2 rounded-2xl bg-black/30 p-5 text-center'
         style={{ fontSize: 'clamp(0.875rem, 4vw - 1rem, 1rem)' }}
       >
-        <img src='/icons/star.svg' alt='star' />
+        <img
+          src='/icons/star.svg'
+          alt='star'
+          className='size-[22px] sm:size-8'
+        />
         Rating
         <div>{d.vote_average.toFixed(2)}/10</div>
       </div>
@@ -20,7 +24,7 @@ const DetailStats = ({ className, ...d }: DetailStatsProps) => {
         className='flex flex-col items-center gap-2 rounded-2xl bg-black/30 p-5 text-center'
         style={{ fontSize: 'clamp(0.875rem, 4vw - 1rem, 1rem)' }}
       >
-        <Video className='size-8 fill-white' />
+        <Video className='size-6 fill-white sm:size-8' />
         Genre
         {d.genres.length > 1 ? (
           d.genres.length > 4 ? (
@@ -40,7 +44,7 @@ const DetailStats = ({ className, ...d }: DetailStatsProps) => {
         className='flex flex-col items-center gap-2 rounded-2xl bg-black/30 p-5 text-center'
         style={{ fontSize: 'clamp(0.875rem, 4vw - 1rem, 1rem)' }}
       >
-        <img src='/icons/age.svg' alt='star' />
+        <img src='/icons/age.svg' alt='star' className='size-6 sm:size-8' />
         Age Limit
         <div>{d.adult ? 'Adult' : 'All age'}</div>
       </div>

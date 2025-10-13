@@ -5,11 +5,12 @@ import { CalendarDays } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import DetailStats from '../layouts/movie-detail-stats';
+import MovieCast from '../layouts/movie-cast';
 
 const ShowDetail = () => {
   const { id } = useParams();
   const [detail, setDetail] = useState<MovieDetail>();
-  console.log(id);
+  // console.log(id);
 
   useEffect(() => {
     try {
@@ -40,7 +41,7 @@ const ShowDetail = () => {
           height: 'clamp(400px, 50vw, 810px)',
           maxWidth: '1440px',
         }}
-        className='mx-auto flex items-end'
+        className='mx-auto flex items-end px-2 sm:px-0'
       >
         <div className='mx-auto flex w-full max-w-300 gap-8 rounded-md'>
           <div
@@ -60,7 +61,10 @@ const ShowDetail = () => {
             >
               {detail.title}
             </div>
-            <div className='text-outline flex items-center gap-2'>
+            <div
+              className='text-outline flex items-center gap-2'
+              style={{ fontSize: 'clamp(0.875rem, 4vw - 1rem, 1rem)' }}
+            >
               <CalendarDays className='' />
               {dayjs(detail.release_date).format('DD MMMM YYYY')}
             </div>
@@ -69,10 +73,10 @@ const ShowDetail = () => {
         </div>
       </div>
       {/* below hero image */}
-      <div className='mx-auto w-full max-w-300'>
+      <div className='mx-auto w-full max-w-300 px-2 sm:px-0'>
         <DetailStats {...detail} className='grid sm:hidden' />
         <div
-          className='font-bold'
+          className='mt-0 font-bold sm:mt-5'
           style={{ fontSize: 'clamp(1.5rem, 5vw - 1rem, 2.25rem)' }}
         >
           Overview
@@ -83,6 +87,14 @@ const ShowDetail = () => {
         >
           {detail.overview}
         </div>
+        <div
+          className='mt-0 font-bold sm:mt-5'
+          style={{ fontSize: 'clamp(1.5rem, 5vw - 1rem, 2.25rem)' }}
+        >
+          Cast & Crew
+        </div>
+        <MovieCast id={detail.id} />
+        <div>{detail.revenue}</div>
       </div>
     </>
   );
