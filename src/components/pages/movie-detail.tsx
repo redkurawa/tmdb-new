@@ -79,6 +79,30 @@ const ShowDetail = () => {
           className='mt-0 font-bold sm:mt-5'
           style={{ fontSize: 'clamp(1.5rem, 5vw - 1rem, 2.25rem)' }}
         >
+          Production
+        </div>
+        {detail.video}
+        <div className='grid grid-cols-3'>
+          {detail.production_companies.map((p) => (
+            <div key={p.id} className='flex items-center gap-5'>
+              <img
+                src={`https://image.tmdb.org/t/p/w92${p.logo_path}`}
+                alt={p.name}
+              />
+              <div>
+                <div>
+                  <div>{p.id}</div>
+                  {p.name}
+                </div>
+                <div>{p.origin_country}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <div
+          className='mt-0 font-bold sm:mt-5'
+          style={{ fontSize: 'clamp(1.5rem, 5vw - 1rem, 2.25rem)' }}
+        >
           Overview
         </div>
         <div

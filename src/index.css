@@ -132,3 +132,21 @@
     1px -1px 0 #a1a1a1,
     -1px 1px 0 #a1a1a1;
 }
+
+/* .text-16to18 {
+  font-size: clamp(1rem, 2vw - 0.75rem, 1.125rem);
+} */
+
+.text-24to36 {
+  font-size: clamp(1.5rem, 5vw - 1rem, 2.25rem);
+}
+
+.text-16to18 {
+  /* Ukuran Font Responsif: 
+    - Minimum (min): 16px
+    - Maksimum (max): 18px
+    - Nilai Pilihan (preferred): 2vw + 14px 
+      (Nilai ini akan menyesuaikan ukuran font seiring perubahan lebar layar (viewport))
+    */
+  font-size: clamp(16px, 0.3295vw + 14.7051px, 18px);
+}

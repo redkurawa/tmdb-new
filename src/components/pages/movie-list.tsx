@@ -88,12 +88,7 @@ const List = () => {
         </div>
       </div>
       <div className='mx-auto w-full max-w-300'>
-        <h1
-          className='font-bold'
-          style={{ fontSize: 'clamp(1.5rem, 5vw - 1rem, 2.25rem)' }}
-        >
-          Trending Now
-        </h1>
+        <h1 className='text-24to36 font-bold'>Trending Now</h1>
         <div className=''>
           <Carousel className='w-full'>
             <CarouselContent>
@@ -107,12 +102,7 @@ const List = () => {
             <CarouselNext />
           </Carousel>
         </div>
-        <h1
-          className='font-bold'
-          style={{ fontSize: 'clamp(1.5rem, 5vw - 1rem, 2.25rem)' }}
-        >
-          New Release
-        </h1>
+        <h1 className='text-24to36 font-bold'>New Release</h1>
 
         <div className='grid grid-cols-2 gap-5 sm:grid-cols-5'>
           {allUpcomingMovies.map((d) => (
