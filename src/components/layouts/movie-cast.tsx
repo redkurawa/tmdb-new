@@ -17,34 +17,42 @@ const MovieCast = ({ id }: CastProps) => {
   });
 
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-3'>
-      {data?.map((d, i) => (
-        <div key={i} className='flex gap-4'>
-          <img
-            src={
-              d.profile_path
-                ? `https://image.tmdb.org/t/p/w185${d.profile_path}`
-                : d.gender == 1
-                  ? '/icons/female-s.png'
-                  : d.gender == 2
-                    ? '/icons/male-s.png'
-                    : '/icons/avatar-s2.png'
-            }
-            alt={d.name}
-            className='mb-2 h-[160px] w-[120px] rounded-lg object-cover'
-          />
-          <div className='flex flex-grow flex-col justify-center'>
-            <div className='text-neutral-25 text-base font-semibold'>
-              {d.name}
-            </div>
-            <div className='text-base text-neutral-400'>as {d.character}</div>
-            <div className='text-base text-neutral-400'>
-              popular : {d.popularity.toFixed(2)}/10
+    <>
+      <div
+        className='mt-0 font-bold sm:mt-5'
+        style={{ fontSize: 'clamp(1.5rem, 5vw - 1rem, 2.25rem)' }}
+      >
+        Cast & Crew ({data?.length})
+      </div>
+      <div className='grid grid-cols-1 sm:grid-cols-3'>
+        {data?.map((d, i) => (
+          <div key={i} className='flex gap-4'>
+            <img
+              src={
+                d.profile_path
+                  ? `https://image.tmdb.org/t/p/w185${d.profile_path}`
+                  : d.gender == 1
+                    ? '/icons/female-s.png'
+                    : d.gender == 2
+                      ? '/icons/male-s.png'
+                      : '/icons/avatar-s2.png'
+              }
+              alt={d.name}
+              className='mb-2 h-[160px] w-[120px] rounded-lg object-cover'
+            />
+            <div className='flex flex-grow flex-col justify-center'>
+              <div className='text-neutral-25 text-base font-semibold'>
+                {d.name}
+              </div>
+              <div className='text-base text-neutral-400'>as {d.character}</div>
+              <div className='text-base text-neutral-400'>
+                popular : {d.popularity.toFixed(2)}/10
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
+    </>
   );
 };
 

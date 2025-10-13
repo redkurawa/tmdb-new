@@ -87,12 +87,12 @@ const ShowDetail = () => {
         >
           {detail.overview}
         </div>
-        <div
+        {/* <div
           className='mt-0 font-bold sm:mt-5'
           style={{ fontSize: 'clamp(1.5rem, 5vw - 1rem, 2.25rem)' }}
         >
           Cast & Crew
-        </div>
+        </div> */}
         <MovieCast id={detail.id} />
         <div>{detail.revenue}</div>
       </div>
