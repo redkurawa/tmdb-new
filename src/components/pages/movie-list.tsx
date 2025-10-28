@@ -10,8 +10,14 @@ import {
   CarouselPrevious,
 } from '../ui/carousel';
 import { Button } from '../ui/button';
+import { MovieHeader } from '../layouts/movie-header';
+import { useState } from 'react';
 
 const List = () => {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState<Movie[]>([]);
+  const [isOpen, setIsOpen] = useState(false);
+
   const { data: popular } = useQuery({
     queryKey: ['tmdb/popular'],
     queryFn: async () => {
@@ -57,12 +63,36 @@ const List = () => {
 
   const allUpcomingMovies = upcoming.pages.flatMap((page) => page.res);
 
+  const handleSearch = async () => {
+    if (query.length >= 2) {
+      const r = await GetM(`/search/movie?query=${query}`);
+      setResults(r.data.results);
+      setIsOpen(true);
+    } else {
+      setResults([]);
+      setIsOpen(false);
+    }
+  };
+
   return (
     <>
       {/* hero */}
+      <MovieHeader query={query} setQuery={setQuery} onSearch={handleSearch} />
+      {isOpen && results.length > 0 && (
+        <div className='mx-auto mt-4 w-full max-w-300'>
+          <h1 className='text-24to36 font-bold'>Search Result</h1>
+          <div className='grid grid-cols-2 gap-5 sm:grid-cols-5'>
+            {results.map((d) => (
+              <div key={d.id}>
+                <MovieCard {...d} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       <div
         style={{
-          backgroundImage: `url(https://image.tmdb.org/t/p/original${popular[0].backdrop_path})`,
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${popular[1].backdrop_path})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
 
