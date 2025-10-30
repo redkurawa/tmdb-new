@@ -132,7 +132,7 @@ const List = () => {
             <CarouselNext />
           </Carousel>
         </div>
-        <h1 className='text-24to36 font-bold'>New Release</h1>
+        <h1 className='text-24to36 mt-10 font-bold'>New Release</h1>
 
         <div className='grid grid-cols-2 gap-5 sm:grid-cols-5'>
           {allUpcomingMovies.map((d) => (
