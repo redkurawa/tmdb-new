@@ -1,6 +1,6 @@
 <div align="center">
   <a href="https://github.com/your-username/tmdb-new">
-    <img src="https://capsulerender.vercel.app/api?type=waving&color=0:FF6B6B,100:4ECDC4&height=300&section=header&text=TMDB%20Movie%20Explorer&fontSize=90&animation=fadeIn&fontAlignY=35&desc=Powered%20by%20TMDB%20API%20%F0%9F%8E%AC%20%F0%9F%8C%9F&descAlignY=55&descAlign=Center" width="100%" alt="TMDB Movie Explorer Header"/>
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FF6B6B,100:4ECDC4&height=300&section=header&text=TMDB%20Movie%20Explorer&fontSize=50&animation=fadeIn&fontAlignY=35&desc=Powered%20by%20TMDB%20API%20%F0%9F%8E%AC%20%F0%9F%8C%9F&descAlignY=55&descAlign=Center" width="100%" alt="TMDB Movie Explorer Header"/>
   </a>
 </div>
 
