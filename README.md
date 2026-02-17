@@ -1,5 +1,68 @@
-# 🚀 TMDB Movie Explorer - Ultimate Documentation
+# 🎬✨ TMDB Movie Explorer ✨🎬
 
+<!-- Animated Header Banner -->
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&weight=600&size=30&pause=1000&color=61DAFB&center=true&vCenter=true&width=435&lines=TMDB+Movie+Explorer;Build+with+React+19+%2B+TypeScript;Powered+by+TMDB+API" alt="Typing SVG" />
+</p>
+
+<!-- Animated Badges -->
+<p align="center">
+  <a href="https://github.com/facebook/react">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="react" width="40" height="40"/>
+  </a>
+  <a href="https://www.typescriptlang.org/">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="40" height="40"/>
+  </a>
+  <a href="https://vitejs.dev/">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vite/vite-original.svg" alt="vite" width="40" height="40"/>
+  </a>
+  <a href="https://tailwindcss.com/">
+    <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-original.svg" alt="tailwindcss" width="40" height="40"/>
+  </a>
+</p>
+
+<!-- Animated Stats -->
+<div align="center">
+  <img src="https://komarev.com/ghpvc/?username=tmdb-new&label=Profile%20Views&color=0e75b6&style=flat" alt="profile views" />
+  <img src="https://img.shields.io/github/license/your-username/tmdb-new?style=flat&color=green" alt="license" />
+  <img src="https://img.shields.io/github/last-commit/your-username/tmdb-new?style=flat&color=orange" alt="last commit" />
+</div>
+
+<!-- Animated Divider -->
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4f80-a447-11eb-9a9a-2a4c47e4c5ef.gif" width="100%" />
+</p>
+
+<!-- Animated Title -->
+<h1 align="center">
+  <a href="#">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Righteous&size=40&weight=700&pause=500&color=f39c12&center=true&vCenter=true&width=500&height=60&lines=Welcome+to+TMDB+Movie+Explorer!" alt="Welcome" />
+  </a>
+</h1>
+
+<!-- Floating Animation -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Movie%20Camera.png" alt="Movie Camera" width="60" height="60" style="animation: float 3s ease-in-out infinite;" />
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Film%20Strip.png" alt="Film Strip" width="60" height="60" style="animation: float 3s ease-in-out infinite; animation-delay: 0.5s;" />
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Ticket.png" alt="Ticket" width="60" height="60" style="animation: float 3s ease-in-out infinite; animation-delay: 1s;" />
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Clapper%20Board.png" alt="Clapper Board" width="60" height="60" style="animation: float 3s ease-in-out infinite; animation-delay: 1.5s;" />
+  <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Popcorn.png" alt="Popcorn" width="60" height="60" style="animation: float 3s ease-in-out infinite; animation-delay: 2s;" />
+</p>
+
+<style>
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+</style>
+
+<!-- Animated Stars -->
+<p align="center">
+  ⭐⭐⭐⭐⭐⭐⭐⭐⭐⭐
+</p>
+
+<!-- Badge Shields -->
 <p align="center">
   <img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=white" alt="React 19">
   <img src="https://img.shields.io/badge/TypeScript-5.9-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript 5.9">
