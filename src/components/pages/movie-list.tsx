@@ -59,14 +59,6 @@ const List = () => {
     getNextPageParam: (lastPage) => lastPage.nextOf,
   });
 
-  if (status == 'pending') return <div>Loading</div>;
-  if (status == 'error') return <div>Error</div>;
-
-  if (!popular) return <div>Loading popular...</div>;
-  if (!upcoming) return <div>Loading upcoming...</div>;
-
-  const allUpcomingMovies = upcoming.pages.flatMap((page) => page.res);
-
   const handleSearch = async () => {
     try {
       if (query.length >= 2) {
@@ -92,6 +84,14 @@ const List = () => {
       handleSearch();
     }
   }, []);
+
+  if (status == 'pending') return <div>Loading</div>;
+  if (status == 'error') return <div>Error</div>;
+
+  if (!popular) return <div>Loading popular...</div>;
+  if (!upcoming) return <div>Loading upcoming...</div>;
+
+  const allUpcomingMovies = upcoming.pages.flatMap((page) => page.res);
 
   return (
     <>
