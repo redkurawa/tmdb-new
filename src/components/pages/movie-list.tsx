@@ -111,7 +111,9 @@ const List = () => {
         <>
           <div
             style={{
-              backgroundImage: `url(https://image.tmdb.org/t/p/original${popular[1].backdrop_path})`,
+              backgroundImage: popular[1]?.backdrop_path
+                ? `url(https://image.tmdb.org/t/p/original${popular[1].backdrop_path})`
+                : 'linear-gradient(to bottom, #1a1a2e, #16213e)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
 

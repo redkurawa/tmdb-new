@@ -46,7 +46,9 @@ const ShowDetail = () => {
         {/* Backdrop covers entire screen including behind header */}
         <div
           style={{
-            backgroundImage: `url(https://image.tmdb.org/t/p/original${detail.backdrop_path})`,
+            backgroundImage: detail.backdrop_path
+              ? `url(https://image.tmdb.org/t/p/original${detail.backdrop_path})`
+              : 'linear-gradient(to bottom, #1a1a2e, #16213e)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             height: 'clamp(400px, 50vw, 810px)',
