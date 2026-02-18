@@ -38,7 +38,14 @@ const MovieCast = ({ id }: CastProps) => {
                       : '/icons/avatar-s2.png'
               }
               alt={d.name}
-              className='mb-2 h-[160px] w-[120px] rounded-lg object-cover'
+              className='hover:animate-wiggle mb-2 h-[160px] w-[120px] rounded-lg object-cover'
+              onMouseEnter={(e) => {
+                (e.target as HTMLImageElement).style.animation =
+                  'wiggle 0.3s ease-in-out infinite';
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLImageElement).style.animation = 'none';
+              }}
             />
             <div className='flex flex-grow flex-col justify-center'>
               <div className='text-neutral-25 text-base font-semibold'>

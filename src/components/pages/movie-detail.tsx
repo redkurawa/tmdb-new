@@ -3,14 +3,16 @@ import type { MovieDetail } from '@/types/movie-detail';
 import dayjs from 'dayjs';
 import { CalendarDays } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import DetailStats from '../layouts/movie-detail-stats';
 import MovieCast from '../layouts/movie-cast';
-// import { MovieHeader } from '../layouts/movie-header';
+import { MovieHeader } from '../layouts/movie-header';
 
 const ShowDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [detail, setDetail] = useState<MovieDetail>();
+  const [query, setQuery] = useState('');
   // console.log(id);
 
   useEffect(() => {
@@ -34,8 +36,14 @@ const ShowDetail = () => {
 
   return (
     <>
-      <div className='relative'>
-        {/* <MovieHeader query={query} setQuery={setQuery} /> */}
+      <MovieHeader
+        query={query}
+        setQuery={setQuery}
+        onSearch={() => navigate('/?search=' + query)}
+        onClearSearch={() => navigate('/')}
+      />
+      <div className='relative z-0'>
+        {/* Backdrop covers entire screen including behind header */}
         <div
           style={{
             backgroundImage: `url(https://image.tmdb.org/t/p/original${detail.backdrop_path})`,
@@ -46,7 +54,7 @@ const ShowDetail = () => {
           }}
           className='mx-auto flex items-end px-2 sm:px-0'
         >
-          <div className='mx-auto flex w-full max-w-300 gap-8 rounded-md'>
+          <div className='mx-auto flex w-full max-w-300 gap-8 rounded-md pt-20'>
             <div
               className=''
               style={{ width: 'clamp(7.25rem, 15vw + 1rem, 16.25rem)' }}
@@ -86,19 +94,28 @@ const ShowDetail = () => {
             Production
           </div>
           {detail.video}
-          <div className='grid grid-cols-3'>
+          <div className='grid grid-cols-3 gap-4'>
             {detail.production_companies.map((p) => (
-              <div key={p.id} className='flex items-center gap-5'>
-                <img
-                  src={`https://image.tmdb.org/t/p/w92${p.logo_path}`}
-                  alt={p.name}
-                />
-                <div>
-                  <div>
-                    <div>{p.id}</div>
-                    {p.name}
+              <div key={p.id} className='flex items-center gap-3'>
+                {p.logo_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w92${p.logo_path}`}
+                    alt={p.name}
+                    className='h-12 w-12 object-contain'
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <div className='flex h-12 w-12 items-center justify-center rounded bg-neutral-800 text-xs text-neutral-400'>
+                    {p.name.substring(0, 2).toUpperCase()}
                   </div>
-                  <div>{p.origin_country}</div>
+                )}
+                <div className='min-w-0'>
+                  <div className='truncate text-sm'>{p.name}</div>
+                  <div className='text-xs text-neutral-400'>
+                    {p.origin_country}
+                  </div>
                 </div>
               </div>
             ))}
