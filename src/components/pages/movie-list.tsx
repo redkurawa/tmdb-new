@@ -1,3 +1,4 @@
+// Force redeploy - fix black screen issue
 import GetM from '@/services/service';
 import type { Movie } from '@/types/movie-list';
 import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
