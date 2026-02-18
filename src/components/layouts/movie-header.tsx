@@ -29,7 +29,7 @@ export const MovieHeader = ({
           onClick={onClearSearch ? () => onClearSearch() : undefined}
         >
           {onClearSearch ? (
-            <div className='flex items-center gap-2'>
+            <div className='hover-back-btn flex items-center gap-2'>
               <ArrowLeft className='size-5' />
               Back
             </div>

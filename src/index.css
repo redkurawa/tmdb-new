@@ -15,6 +15,80 @@
   animation: wiggle 0.5s ease-in-out infinite;
 }
 
+@keyframes glow-outline {
+  0%,
+  100% {
+    text-shadow:
+      0 0 4px rgba(0, 0, 0, 0.8),
+      0 0 8px rgba(0, 0, 0, 0.6),
+      0 0 12px rgba(0, 0, 0, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    text-shadow:
+      0 0 8px rgba(0, 0, 0, 1),
+      0 0 16px rgba(0, 0, 0, 0.8),
+      0 0 24px rgba(0, 0, 0, 0.6);
+    transform: scale(1.05);
+  }
+}
+
+.hover-text-outline {
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.hover-text-outline:hover {
+  animation: glow-outline 1s ease-in-out infinite;
+  color: #fff;
+}
+
+@keyframes icon-bounce {
+  0%,
+  100% {
+    transform: translateX(0);
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    transform: translateX(-3px);
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.8));
+  }
+}
+
+.hover-icon-bounce {
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.hover-icon-bounce:hover {
+  animation: icon-bounce 0.6s ease-in-out infinite;
+}
+
+.hover-back-btn {
+  transition: all 0.3s ease;
+}
+
+@keyframes back-btn-anim {
+  0%,
+  100% {
+    transform: translateX(0);
+    text-shadow: none;
+    color: inherit;
+  }
+  50% {
+    transform: translateX(-4px);
+    text-shadow:
+      0 0 4px rgba(0, 0, 0, 0.8),
+      0 0 8px rgba(0, 0, 0, 0.6),
+      0 0 12px rgba(0, 0, 0, 0.4);
+    color: #fff;
+  }
+}
+
+.hover-back-btn:hover {
+  animation: back-btn-anim 2s ease-in-out infinite;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
